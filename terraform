@@ -1,0 +1,15 @@
+provider "aws" {
+  region     = "us-east-1"
+  access_key = "AKIAQGDZ3W2SB22QS7IZ"
+  secret_key = "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"
+}
+
+resource "aws_instance" "AWSServer" {
+  count = "5"
+  ami             = "ami-09e67e426f25ce0d7"
+  instance_type   = "t3.micro"
+  key_name        = "sai"
+  security_groups = ["launch-wizard-81"]
+  tags = {
+    Name = "Terrafrom Server"
+  }
